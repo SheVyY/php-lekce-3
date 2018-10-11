@@ -17,6 +17,12 @@
  
  session_start();
  
+ if(isset($_SESSION['data'])) {
+     
+ $data = $_SESSION['data'];
+ 
+ }
+ 
  if(isset($_SESSION['login'])) {
  
  $user = $_SESSION['login'];
@@ -30,20 +36,17 @@
   } else {
       
      echo "Vítejte $user" . "<br>" . "<br>";  
-
-    $data = ['Datum registrace:' => '2.4.2018', 'Souhlas s podmínkami:' => 'ANO', 'Počet objednávek:' => 23];
     
     echo '<table class="table table-bordered">';
     
     foreach ($data as $udaj => $udaj_uživatele) {
         
         echo "
-        
+            <tr>
             <td>$udaj</td>
             
             <td>$udaj_uživatele</td>
-            
-            <tr></tr>
+            </tr>
             
             ";
     }
